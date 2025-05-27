@@ -75,7 +75,7 @@ jobs:
         jf docker tag $IMAGE_NAME $IMAGE_LATEST
         jf docker push $IMAGE_NAME
         jf docker push $IMAGE_LATEST
-        jf scan $IMAGE_LATEST --format=json > scan-latest.json
+        jf docker scan $IMAGE_LATEST --format=json > xray-scan-result.json
 
     - name: Upload scan result as artifact
       uses: actions/upload-artifact@v4
