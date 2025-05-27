@@ -95,10 +95,19 @@ Please note `JF_RESISTRY`, `JF_REPOSITORY` and `JF_DOCKER_IMAGE_NAME` will be re
 #### 5. Download docker image from JFrog Artifactory and run it in local machine.
 
  5.1) Run following docker commands on your command line.
+
+Replace the placeholders with your actual values as you configured in step 3.5:
 ```bash
 docker login -u<your account> <JF_REGISTRY>
 docker pull <JF_REGISTRY>/<JF_REPOSITORY>/<JF_DOCKER_IMAGE_NAME>:latest
 docker run -p 8080:8080 <JF_REGISTRY>/<JF_REPOSITORY>/<JF_DOCKER_IMAGE_NAME>:latest
+```
+
+For example:
+```bash
+docker login -uXXXXX@YYYY.com trialuw7hgr.jfrog.io
+docker pull trialuw7hgr/tmp1-docker/spring-petclinic:latest
+docker run -p 8080:8080 trialuw7hgr/tmp1-docker/spring-petclinic:latest
 ```
 
  5.2) Visit [localhost:8080](http://localhost:8080) in your browser.
