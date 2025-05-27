@@ -26,7 +26,7 @@ All dependencies are resolved from Maven Central.
 
 - `.github/workflows/ci.yml` - GitHub Actions workflow definition for JFrog CI.
 - `Dockerfile` - Docker image build instraction
-- `deliverables/xray-scan-result.zip` - Exported scan result from JFrog (.json files are in the zip)
+- `deliverables/xray-scan-result.json` - Exported scan result from JFrog
 - `README.md` - This file
 
 
