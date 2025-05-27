@@ -28,7 +28,7 @@ Here are the main modifications compared to the original spring-petclinic projec
 
 - `.github/workflows/ci.yml` - GitHub Actions workflow definition for JFrog CI.
 - `Dockerfile` - Docker image build instraction
-- `pom.xml` - updated to resolve dependencies from Maven central
+- `pom.xml` - Updated pom.xml file to resolve dependencies from Maven central
 - `deliverables/xray-scan-result.json` - Exported scan result from JFrog
 - `README.md` - This file
 
