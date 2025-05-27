@@ -1,3 +1,57 @@
+# JFrog CI/CD sample pipeline for the Spring PetClinic Sample Application
+
+
+## Project Overview
+
+This project demonstrates a CI/CD pipeline using GitHub Actions for the Spring PetClinic application and JFrog. The pipeline includes the following steps:
+
+- Validating dependencies
+- Compiling the code
+- Runnning tests
+- Packaging the application as a Docker image
+- Publishing the image to JFrog Artifactory
+- Performing Xray security scan on the image
+
+All dependencies are resolved from Maven Central.
+
+
+
+
+## SpringPetClinic Sample Application
+
+[spring-petclinic](https://github.com/spring-projects/spring-petclinic)
+
+
+## Project Structure
+
+- `.github/workflows/ci.yml` - GitHub Actions workflow definition for JFrog CI.
+- `Dockerfile` - Docker image build instraction
+- `deliverables/xray-scan-result.zip` - Exported scan result from JFrog (.json files are in the zip)
+- `README.md` - This file
+
+
+## How to Run the Project
+
+### Prerequisites
+
+- Docker installed
+- Git installed (optional for local testing/updating)
+- JDK 17+ (optional for local testing)
+- Maven (optional for local testing)
+- JFrog CLI (optional for local testing)
+
+
+### Steps:
+1. copy repo in GitHub
+2. setup Repository in JFrog
+3. CI Tool setup
+4. Assign Action secrets and variables for your preference
+5. Run CI in GitHub Actions
+6. DL docker image and run it in local machine.
+
+
+
+
 # Spring PetClinic Sample Application [![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)[![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/gradle-build.yml)
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/spring-projects/spring-petclinic) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=7517918)

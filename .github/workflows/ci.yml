@@ -1,0 +1,100 @@
+name: CI with Maven for compile, test
+
+on:
+  push:
+    branches: 
+      - "main"
+      - "homework/ci-pipeline"
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
+      - "deliverables/**"
+  pull_request:
+    branches:
+      - "main"
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "manual"
+        required: true
+        default: "default"
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up JDK17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Compile
+      run: mvn compile
+
+    - name: Run tests 
+      run: mvn test
+
+    - name: Package
+      run: mvn clean package -DskipTests
+
+    - name: Check GitHub secrets and varriables
+      run: |
+        if [ -z "${{ secrets.JF_ACCESS_TOKEN }}" ]; then
+          echo "JF_ACCESS_TOKEN is not set in GitHub Action secrets. Please confirm Secret and variable section in the repository Settings."
+          exit 1
+        elif [ -z "{{ vars.JF_URL}}" ]; then
+          echo "JF_URL is not set in GitHub Action variables. Please confirm Secret and variable section in the repository Settings."
+          exit 1
+        elif [ -z "{{ vars.JF_REGISTRY}}" ]; then
+          echo "JF_REGISTRY is not set in GitHub Action variables. Please confirm Secret and variable section in the repository Settings."
+          exit 1
+        elif [ -z "{{ vars.JF_REPOSITORY}}" ]; then
+          echo "JF_REPOSITORY is not set in GitHub Action variables. Please confirm Secret and variable section in the repository Settings."
+          exit 1
+        elif [ -z "{{ vars.JF_DOCKER_IMAGE_NAME}}" ]; then
+          echo "JF_DOCKER_IMAGE_NAME is not set in GitHub Action variables. Please confirm Secret and variable section in the repository Settings."
+          exit 1
+        else
+          echo "All requried vars and secrets are set."
+        fi
+
+
+    - name: Setup JFrog CLI
+      uses: jfrog/setup-jfrog-cli@v4
+      env:
+        JF_URL: ${{ vars.JF_URL }}
+        JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+
+    - name: Build Tag and push Docker Image
+      env:
+        IMAGE_NAME: ${{ vars.JF_REGISTRY }}/${{ vars.JF_REPOSITORY }}/${{ vars.JF_DOCKER_IMAGE_NAME }}:${{ github.run_number }}
+        IMAGE_LATEST: ${{ vars.JF_REGISTRY }}/${{ vars.JF_REPOSITORY }}/${{ vars.JF_DOCKER_IMAGE_NAME }}:latest      
+      run: |
+        jf docker build -t $IMAGE_NAME .
+        jf docker tag $IMAGE_NAME $IMAGE_LATEST
+        jf docker push $IMAGE_NAME
+        jf docker push $IMAGE_LATEST
+        #In case, watchlist not defined
+        #jf docker scan $IMAGE_NAME --format=json > scan-${{ github.run_number }}.json
+        jf docker scan $IMAGE_LATEST --format=json > scan-latest.json
+
+    - name: Publish Build info With JFrog CLI
+      env:
+        # Generated and maintained by GitHub
+        JFROG_CLI_BUILD_NAME: homework-docker-build
+        # JFrog organization secret
+        JFROG_CLI_BUILD_NUMBER : ${{ github.run_number }}
+      run: |
+        # Export the build name and build nuber
+        # Collect environment variables for the build
+        jf rt build-collect-env
+        # Collect VCS details from git and add them to the build
+        jf rt build-add-git
+        # Publish build info
+        jf rt build-publish
+
+
