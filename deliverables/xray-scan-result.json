@@ -1,0 +1,409 @@
+[
+  {
+    "scan_id": "34e7ef30-7df5-4faa-4397-b48db5485709",
+    "vulnerabilities": [
+      {
+        "cves": [
+          {
+            "cve": "CVE-2025-22235",
+            "cvss_v3_score": "7.3",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+            "cwe": [
+              "CWE-20",
+              "CWE-862"
+            ]
+          }
+        ],
+        "summary": "EndpointRequest.to() creates a matcher for null/** if the actuator endpoint, for which the EndpointRequest has been created, is disabled or not exposed.\n\nYour application may be affected by this if all the following conditions are met:\n\n  *  You use Spring Security\n  *  EndpointRequest.to() has been used in a Spring Security chain configuration\n  *  The endpoint which EndpointRequest references is disabled or not exposed via web\n  *  Your application handles requests to /null and this path needs protection\n\n\nYou are not affected if any of the following is true:\n\n  *  You don't use Spring Security\n  *  You don't use EndpointRequest.to()\n  *  The endpoint which EndpointRequest.to() refers to is enabled and is exposed\n  *  Your application does not handle requests to /null or this path does not need protection",
+        "severity": "High",
+        "components": {
+          "gav://org.springframework.boot:spring-boot:3.4.2": {
+            "fixed_versions": [
+              "[3.3.11]",
+              "[3.4.5]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest"
+                },
+                {
+                  "component_id": "generic://sha256:e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e/sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar",
+                  "full_path": "sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar"
+                },
+                {
+                  "component_id": "generic://sha256:d5b539bc8a04bf255e3099a3ffb187ff44a1245b7e9782ec9b7d2ceac6c0a947/app.jar",
+                  "full_path": "app/app.jar"
+                },
+                {
+                  "component_id": "gav://org.springframework.boot:spring-boot:3.4.2",
+                  "full_path": "BOOT-INF/lib/spring-boot-3.4.2.jar"
+                }
+              ],
+              [
+                {
+                  "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest"
+                },
+                {
+                  "component_id": "generic://sha256:e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e/sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar",
+                  "full_path": "sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar"
+                },
+                {
+                  "component_id": "generic://sha256:d5b539bc8a04bf255e3099a3ffb187ff44a1245b7e9782ec9b7d2ceac6c0a947/app.jar",
+                  "full_path": "app/app.jar"
+                },
+                {
+                  "component_id": "generic://sha256:a075de2816332d160a5383eef1995b55272aacb6888713d67c33fedabfc32503/application.cdx.json",
+                  "full_path": "META-INF/sbom/application.cdx.json"
+                },
+                {
+                  "component_id": "gav://org.springframework.samples:spring-petclinic:3.4.0-SNAPSHOT",
+                  "full_path": "/org.springframework.samples:spring-petclinic:3.4.0-SNAPSHOT"
+                },
+                {
+                  "component_id": "gav://org.springframework.boot:spring-boot:3.4.2",
+                  "full_path": "gav://org.springframework.boot:spring-boot:3.4.2org.springframework.boot:spring-boot:3.4.2"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-695110",
+        "references": [
+          "https://security.netapp.com/advisory/ntap-20250516-0010",
+          "https://github.com/advisories/GHSA-rc42-6c7j-7h5r",
+          "https://nvd.nist.gov/vuln/detail/CVE-2025-22235",
+          "https://security.netapp.com/advisory/ntap-20250516-0010/",
+          "https://spring.io/security/cve-2025-22235"
+        ],
+        "extended_information": {}
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2021-4214",
+            "cvss_v3_score": "5.5",
+            "cvss_v3_vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "cwe": [
+              "CWE-120"
+            ]
+          }
+        ],
+        "summary": "A heap overflow flaw was found in libpngs' pngimage.c program. This flaw allows an attacker with local network access to pass a specially crafted PNG file to the pngimage utility, causing an application to crash, leading to a denial of service.",
+        "severity": "Medium",
+        "components": {
+          "alpine://3.21:libpng:1.6.47-r0": {
+            "impact_paths": [
+              [
+                {
+                  "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest"
+                },
+                {
+                  "component_id": "generic://sha256:11dbcb74a308d299742d33b5d141ef767630618c8471d207c958ecb30927ccd0/sha256__11dbcb74a308d299742d33b5d141ef767630618c8471d207c958ecb30927ccd0.tar",
+                  "full_path": "sha256__11dbcb74a308d299742d33b5d141ef767630618c8471d207c958ecb30927ccd0.tar"
+                },
+                {
+                  "component_id": "alpine://3.21:libpng:1.6.47-r0",
+                  "full_path": "3.21:libpng:1.6.47-r0"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-594241",
+        "references": [
+          "https://nvd.nist.gov/vuln/detail/CVE-2021-4214",
+          "https://access.redhat.com/security/cve/CVE-2021-4214",
+          "https://security-tracker.debian.org/tracker/CVE-2021-4214",
+          "https://bugzilla.redhat.com/show_bug.cgi?id=2043393",
+          "https://github.com/glennrp/libpng/issues/302",
+          "https://security.netapp.com/advisory/ntap-20221020-0001/"
+        ],
+        "extended_information": {}
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2025-31651",
+            "cvss_v3_score": "9.8",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "cwe": [
+              "CWE-150",
+              "CWE-116"
+            ]
+          }
+        ],
+        "summary": "Improper Neutralization of Escape, Meta, or Control Sequences vulnerability in Apache Tomcat. For a subset of unlikely rewrite rule configurations, it was possible \nfor a specially crafted request to bypass some rewrite rules. If those \nrewrite rules effectively enforced security constraints, those \nconstraints could be bypassed.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.5, from 10.1.0-M1 through 10.1.39, from 9.0.0.M1 through 9.0.102.\n\nUsers are recommended to upgrade to version [FIXED_VERSION], which fixes the issue.",
+        "severity": "Critical",
+        "components": {
+          "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34": {
+            "fixed_versions": [
+              "[10.1.40]",
+              "[11.0.6]",
+              "[9.0.104]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest"
+                },
+                {
+                  "component_id": "generic://sha256:e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e/sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar",
+                  "full_path": "sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar"
+                },
+                {
+                  "component_id": "generic://sha256:d5b539bc8a04bf255e3099a3ffb187ff44a1245b7e9782ec9b7d2ceac6c0a947/app.jar",
+                  "full_path": "app/app.jar"
+                },
+                {
+                  "component_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34",
+                  "full_path": "BOOT-INF/lib/tomcat-embed-core-10.1.34.jar"
+                }
+              ],
+              [
+                {
+                  "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest"
+                },
+                {
+                  "component_id": "generic://sha256:e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e/sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar",
+                  "full_path": "sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar"
+                },
+                {
+                  "component_id": "generic://sha256:d5b539bc8a04bf255e3099a3ffb187ff44a1245b7e9782ec9b7d2ceac6c0a947/app.jar",
+                  "full_path": "app/app.jar"
+                },
+                {
+                  "component_id": "generic://sha256:a075de2816332d160a5383eef1995b55272aacb6888713d67c33fedabfc32503/application.cdx.json",
+                  "full_path": "META-INF/sbom/application.cdx.json"
+                },
+                {
+                  "component_id": "gav://org.springframework.samples:spring-petclinic:3.4.0-SNAPSHOT",
+                  "full_path": "/org.springframework.samples:spring-petclinic:3.4.0-SNAPSHOT"
+                },
+                {
+                  "component_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34",
+                  "full_path": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34org.apache.tomcat.embed:tomcat-embed-core:10.1.34"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-695198",
+        "references": [
+          "https://tomcat.apache.org/security-11.html",
+          "https://nvd.nist.gov/vuln/detail/CVE-2025-31651",
+          "https://github.com/apache/tomcat/commit/175dc75fc428930034a6c93fb52f830d955d8e64",
+          "https://github.com/apache/tomcat/commit/ee3ab548e92345eca0cbd1f01649eb36c6f29454",
+          "https://github.com/apache/tomcat/commit/066bf6b6a15a4e7e0941d4acf096841165b97098",
+          "http://www.openwall.com/lists/oss-security/2025/04/28/3",
+          "https://github.com/apache/tomcat/commit/fbecc915a10c5a3d634c5e2c6ced4ff479ce9953",
+          "https://github.com/advisories/GHSA-ff77-26x5-69cr",
+          "https://tomcat.apache.org/security-10.html",
+          "https://tomcat.apache.org/security-9.html",
+          "https://lists.apache.org/list.html?announce@tomcat.apache.org"
+        ],
+        "extended_information": {}
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2025-31650",
+            "cvss_v3_score": "7.5",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cwe": [
+              "CWE-460",
+              "CWE-459"
+            ]
+          }
+        ],
+        "summary": "Improper Input Validation vulnerability in Apache Tomcat. Incorrect error handling for some invalid HTTP priority headers resulted in incomplete clean-up of the failed request which created a memory leak. A large number of such requests could trigger an OutOfMemoryException resulting in a denial of service.\n\nThis issue affects Apache Tomcat: from 9.0.76 through 9.0.102, from 10.1.10 through 10.1.39, from 11.0.0-M2 through 11.0.5.\n\nUsers are recommended to upgrade to version 9.0.104, 10.1.40 or 11.0.6 which fix the issue.",
+        "severity": "High",
+        "components": {
+          "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34": {
+            "fixed_versions": [
+              "[10.1.40]",
+              "[11.0.6]",
+              "[9.0.104]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest"
+                },
+                {
+                  "component_id": "generic://sha256:e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e/sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar",
+                  "full_path": "sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar"
+                },
+                {
+                  "component_id": "generic://sha256:d5b539bc8a04bf255e3099a3ffb187ff44a1245b7e9782ec9b7d2ceac6c0a947/app.jar",
+                  "full_path": "app/app.jar"
+                },
+                {
+                  "component_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34",
+                  "full_path": "BOOT-INF/lib/tomcat-embed-core-10.1.34.jar"
+                }
+              ],
+              [
+                {
+                  "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest"
+                },
+                {
+                  "component_id": "generic://sha256:e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e/sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar",
+                  "full_path": "sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar"
+                },
+                {
+                  "component_id": "generic://sha256:d5b539bc8a04bf255e3099a3ffb187ff44a1245b7e9782ec9b7d2ceac6c0a947/app.jar",
+                  "full_path": "app/app.jar"
+                },
+                {
+                  "component_id": "generic://sha256:a075de2816332d160a5383eef1995b55272aacb6888713d67c33fedabfc32503/application.cdx.json",
+                  "full_path": "META-INF/sbom/application.cdx.json"
+                },
+                {
+                  "component_id": "gav://org.springframework.samples:spring-petclinic:3.4.0-SNAPSHOT",
+                  "full_path": "/org.springframework.samples:spring-petclinic:3.4.0-SNAPSHOT"
+                },
+                {
+                  "component_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34",
+                  "full_path": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34org.apache.tomcat.embed:tomcat-embed-core:10.1.34"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-695197",
+        "references": [
+          "https://github.com/advisories/GHSA-3p2h-wqq4-wf4h",
+          "https://github.com/apache/tomcat/commit/b98e74f517b36929f4208506e5adad22cb767baa",
+          "http://www.openwall.com/lists/oss-security/2025/04/28/2",
+          "https://lists.apache.org/thread/j6zzk0y3yym9pzfzkq5vcyxzz0yzh826",
+          "https://github.com/apache/tomcat/commit/ded0285b96b4d3f5560dfc8856ad5ec4a9b50ba9",
+          "https://nvd.nist.gov/vuln/detail/CVE-2025-31650",
+          "https://github.com/apache/tomcat/commit/cba1a0fe1289ee7f5dd46c61c38d1e1ac5437bff",
+          "https://github.com/apache/tomcat/commit/75554da2fc5574862510ae6f0d7b3d78937f1d40",
+          "https://github.com/apache/tomcat/commit/b7674782679e1514a0d154166b1d04d38aaac4a9",
+          "https://github.com/apache/tomcat/commit/8cc3b8fb3f2d8d4d6a757e014f19d1fafa948a60",
+          "https://tomcat.apache.org/security-11.html",
+          "https://tomcat.apache.org/security-10.html",
+          "https://github.com/apache/tomcat/commit/1eef1dc459c45f1e421d8bd25ef340fc1cc34edc",
+          "https://tomcat.apache.org/security-9.html",
+          "https://github.com/apache/tomcat/commit/f619e6a05029538886d5a9d987925d573b5bb8c2",
+          "https://github.com/apache/tomcat/commit/40ae788c2e64d018b4e58cd4210bb96434d0100d"
+        ],
+        "extended_information": {}
+      },
+      {
+        "cves": [
+          {
+            "cve": "CVE-2025-24813",
+            "cvss_v3_score": "9.8",
+            "cvss_v3_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "cwe": [
+              "CWE-502",
+              "CWE-44",
+              "CWE-706"
+            ]
+          }
+        ],
+        "summary": "Path Equivalence: 'file.Name' (Internal Dot) leading to Remote Code Execution and/or Information disclosure and/or malicious content added to uploaded files via write enabled Default Servlet in Apache Tomcat.\n\nThis issue affects Apache Tomcat: from 11.0.0-M1 through 11.0.2, from 10.1.0-M1 through 10.1.34, from 9.0.0.M1 through 9.0.98.\n\nIf all of the following were true, a malicious user was able to view       security sensitive files and/or inject content into those files:\n- writes enabled for the default servlet (disabled by default)\n- support for partial PUT (enabled by default)\n- a target URL for security sensitive uploads that was a sub-directory of a target URL for public uploads\n- attacker knowledge of the names of security sensitive files being uploaded\n- the security sensitive files also being uploaded via partial PUT\n\nIf all of the following were true, a malicious user was able to       perform remote code execution:\n- writes enabled for the default servlet (disabled by default)\n- support for partial PUT (enabled by default)\n- application was using Tomcat's file based session persistence with the default storage location\n- application included a library that may be leveraged in a deserialization attack\n\nUsers are recommended to upgrade to version 11.0.3, 10.1.35 or 9.0.99, which fixes the issue.",
+        "severity": "Critical",
+        "components": {
+          "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34": {
+            "fixed_versions": [
+              "[10.1.35]",
+              "[11.0.3]",
+              "[9.0.99]"
+            ],
+            "impact_paths": [
+              [
+                {
+                  "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest"
+                },
+                {
+                  "component_id": "generic://sha256:e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e/sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar",
+                  "full_path": "sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar"
+                },
+                {
+                  "component_id": "generic://sha256:d5b539bc8a04bf255e3099a3ffb187ff44a1245b7e9782ec9b7d2ceac6c0a947/app.jar",
+                  "full_path": "app/app.jar"
+                },
+                {
+                  "component_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34",
+                  "full_path": "BOOT-INF/lib/tomcat-embed-core-10.1.34.jar"
+                }
+              ],
+              [
+                {
+                  "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest"
+                },
+                {
+                  "component_id": "generic://sha256:e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e/sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar",
+                  "full_path": "sha256__e4013a660886d54905da94c88d88490483bc41074785d3afa5eadc1d306e7e1e.tar"
+                },
+                {
+                  "component_id": "generic://sha256:d5b539bc8a04bf255e3099a3ffb187ff44a1245b7e9782ec9b7d2ceac6c0a947/app.jar",
+                  "full_path": "app/app.jar"
+                },
+                {
+                  "component_id": "generic://sha256:a075de2816332d160a5383eef1995b55272aacb6888713d67c33fedabfc32503/application.cdx.json",
+                  "full_path": "META-INF/sbom/application.cdx.json"
+                },
+                {
+                  "component_id": "gav://org.springframework.samples:spring-petclinic:3.4.0-SNAPSHOT",
+                  "full_path": "/org.springframework.samples:spring-petclinic:3.4.0-SNAPSHOT"
+                },
+                {
+                  "component_id": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34",
+                  "full_path": "gav://org.apache.tomcat.embed:tomcat-embed-core:10.1.34org.apache.tomcat.embed:tomcat-embed-core:10.1.34"
+                }
+              ]
+            ]
+          }
+        },
+        "issue_id": "XRAY-676707",
+        "references": [
+          "https://github.com/absholi7ly/POC-CVE-2025-24813/blob/main/README.md",
+          "https://www.vicarius.io/vsociety/posts/cve-2025-24813-detect-apache-tomcat-rce",
+          "https://security.netapp.com/advisory/ntap-20250321-0001",
+          "https://github.com/advisories/GHSA-83qj-6fr2-vhqg",
+          "https://nvd.nist.gov/vuln/detail/CVE-2025-24813",
+          "https://security.netapp.com/advisory/ntap-20250321-0001/",
+          "http://www.openwall.com/lists/oss-security/2025/03/10/5",
+          "https://lists.apache.org/thread/j5fkjv2k477os90nczf2v9l61fb0kkgq",
+          "https://github.com/apache/tomcat/commit/eb61aade8f8daccaecabf07d428b877975622f72",
+          "https://www.vicarius.io/vsociety/posts/cve-2025-24813-mitigate-apache-tomcat-rce",
+          "https://github.com/apache/tomcat/commit/0a668e0c27f2b7ca0cc7c6eea32253b9b5ecb29c",
+          "https://github.com/apache/tomcat/commit/f6c01d6577cf9a1e06792be47e623d36acc3b5dc",
+          "https://lists.debian.org/debian-lts-announce/2025/04/msg00003.html"
+        ],
+        "extended_information": {
+          "short_description": "A design problem in Apache Tomcat may lead to remote code execution when handling partial PUT requests.",
+          "jfrog_research_severity": "High",
+          "jfrog_research_severity_reasons": [
+            {
+              "name": "The issue can be exploited by attackers over the network",
+              "description": "This vulnerability can be exploited remotely by sending a malicious request to the server."
+            },
+            {
+              "name": "Exploitation of the issue is only possible when the vulnerable component is used in a specific manner. The attacker has to perform per-target research to determine the vulnerable attack vector",
+              "description": "Exploitation of this vulnerability for data leakage requires the following prerequisites:\n1. Writes enabled for the default servlet (disabled by default).\n2. Support for partial PUT (enabled by default).\n3. A target URL for security-sensitive uploads that is a sub-directory of a target URL for public uploads.\n4. Attacker knowledge of the names of security-sensitive files being uploaded.\n5. The security-sensitive files are also being uploaded via partial PUT.\n\nExploitation for code execution requires the following:\n1. Writes enabled for the default servlet (disabled by default).\n2. Support for partial PUT (enabled by default).\n3. The application was using Tomcat's file-based session persistence with the default storage location.\n4. The application included a library that may be leveraged in a deserialization attack.",
+              "is_positive": true
+            },
+            {
+              "name": "The issue has an exploit published",
+              "description": "The vulnerability has a published PoC."
+            },
+            {
+              "name": "The issue results in a severe impact (such as remote code execution)",
+              "description": "The impact of this vulnerability can be remote code execution or data leakage."
+            }
+          ],
+          "remediation": "##### Development mitigations\n\nThis vulnerability can be mitigated by enabling the `readonly` parameter of the default servlet (which is enabled by default). For example:\n\n```\n\u003cservlet\u003e\n    \u003cservlet-name\u003edefault\u003c/servlet-name\u003e\n    \u003cservlet-class\u003eorg.apache.catalina.servlets.DefaultServlet\u003c/servlet-class\u003e\n    \u003cinit-param\u003e\n        \u003cparam-name\u003ereadonly\u003c/param-name\u003e\n        \u003cparam-value\u003etrue\u003c/param-value\u003e\n    \u003c/init-param\u003e\n\u003c/servlet\u003e\n```\n\nAnother option is to disable partial PUT (enabled by default):\n```\n\u003cservlet\u003e\n    \u003cservlet-name\u003edefault\u003c/servlet-name\u003e\n    \u003cservlet-class\u003eorg.apache.catalina.servlets.DefaultServlet\u003c/servlet-class\u003e\n    \u003cinit-param\u003e\n        \u003cparam-name\u003eallowPartialPut\u003c/param-name\u003e\n        \u003cparam-value\u003efalse\u003c/param-value\u003e\n    \u003c/init-param\u003e\n\u003c/servlet\u003e\n```\n\nA third option, useful only for mitigating the RCE case (so use this only if any of the conditions for data leakage are not met), is changing the configuration of the [Persistent Manager implementation](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#:~:text=the%20sessionIdLength%20attribute.-,Persistent%20Manager%20Implementation,-If%20you%20are) to use a custom directory. This can be done through `context.xml`, by adding the `directory` attribute to the `Store` tag and specifying a custom directory:\n```\n\u003cManager className=\"org.apache.catalina.session.PersistentManager\" maxIdleBackup=\"1\" saveOnRestart=\"true\" processExpiresFrequency=\"1\"\u003e\n\t\u003cStore className=\"org.apache.catalina.session.FileStore\" directory=\"...\"/\u003e\n\u003c/Manager\u003e\n```"
+        }
+      }
+    ],
+    "component_id": "docker://trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest",
+    "package_type": "oci",
+    "status": "completed"
+  }
+]
