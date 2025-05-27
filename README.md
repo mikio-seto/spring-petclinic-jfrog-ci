@@ -42,11 +42,24 @@ All dependencies are resolved from Maven Central.
 
 
 ### Steps:
-1. copy repo in GitHub
-2. setup Repository in JFrog
+
+1. Import repository under your account
+  1) Click "+" icon at the top right in any GitHub page, then select "Import repository".
+  2) Enter `https://github.com/mikio-seto/spring-petclinic-jfrog-ci` in The URL for your sourcer repository.
+  3) Name prefered repository name, and click "Begin import" button.
+
+2. Setup Repository in JFrog
+
+
 3. CI Tool setup
+
+
 4. Assign Action secrets and variables for your preference
+
+
 5. Run CI in GitHub Actions
+
+
 6. DL docker image and run it in local machine.
 
 
