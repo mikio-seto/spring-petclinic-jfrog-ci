@@ -1,21 +1,18 @@
-name: CI with Maven for compile, test
+name: CI with Maven and JFrog
 
 on:
   push:
     branches: 
       - "main"
-      - "homework/ci-pipeline"
+      - "features/jfrog-ci-pipeline"
     paths-ignore:
       - "docs/**"
       - "**.md"
       - "deliverables/**"
-  pull_request:
-    branches:
-      - "main"
   workflow_dispatch:
     inputs:
       environment:
-        description: "manual"
+        description: "Placeholder"
         required: true
         default: "default"
 
