@@ -75,11 +75,10 @@ jobs:
         jf docker tag $IMAGE_NAME $IMAGE_LATEST
         jf docker push $IMAGE_NAME
         jf docker push $IMAGE_LATEST
-        #In case, watchlist not defined
         jf scan $IMAGE_LATEST --format=json > scan-latest.json
 
     - name: Upload scan result as artifact
-      uses: action/upload-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: xray-scan-result
         path: scan-latest.json
