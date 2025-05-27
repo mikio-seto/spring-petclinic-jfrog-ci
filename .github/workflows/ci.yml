@@ -78,7 +78,7 @@ jobs:
         jf scan $IMAGE_LATEST --format=json > scan-latest.json
 
     - name: Upload scan result as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: xray-scan-result
         path: scan-latest.json
