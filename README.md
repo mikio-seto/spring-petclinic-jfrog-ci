@@ -106,8 +106,8 @@ docker run -p 8080:8080 <JF_REGISTRY>/<JF_REPOSITORY>/<JF_DOCKER_IMAGE_NAME>:lat
 For example:
 ```bash
 docker login -uXXXXX@YYYY.com trialuw7hgr.jfrog.io
-docker pull trialuw7hgr/tmp1-docker/spring-petclinic:latest
-docker run -p 8080:8080 trialuw7hgr/tmp1-docker/spring-petclinic:latest
+docker pull trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest
+docker run -p 8080:8080 trialuw7hgr.jfrog.io/tmp1-docker/spring-petclinic:latest
 ```
 
  5.2) Visit [localhost:8080](http://localhost:8080) in your browser.
