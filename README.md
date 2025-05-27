@@ -44,25 +44,26 @@ All dependencies are resolved from Maven Central.
 ### Steps:
 
 #### 1. Import repository under your account
-    1) Click "+" icon at the top right in any GitHub page, then select "Import repository".
-    2) Enter `https://github.com/mikio-seto/spring-petclinic-jfrog-ci` in "The URL for your sourcer repository" field.
-    3) Name prefered repository name, and click "Begin import" button.
+1) Click "+" icon at the top right in any GitHub page, then select "Import repository".
+2) Enter `https://github.com/mikio-seto/spring-petclinic-jfrog-ci` in "The URL for your sourcer repository" field.
+3) Name prefered repository name, and click "Begin import" button.
 
 
-#### 1. Setup Repository in JFrog
+#### 2. Setup Repository and JFrog CI Tool
+1) Login to JFrog and go to JFrog Platform.
+2) Select "Administration" in JFrog Platform.
+3) Click "Create a Repository" button, and create a Docker repository.
+4) In the Set UP Client/CI Tool dialog, select `CI TOOL -> GitHub Actions -> Existing Project`.
+5) Generate Access Token by clicking "Generate" and make a note for JF_URL and JF_ACCESS_TOKEN for the later steps.
+6) Close the dialog. 
+
+#### 3. Assign Action secrets and variables for your preference
 
 
-#### 1. JFrog CI Tool setup
+#### 4. Run CI in GitHub Actions
 
 
-#### 1. Assign Action secrets and variables for your preference
-
-
-#### 1. Run CI in GitHub Actions
-
-
-#### 1. DL docker image and run it in local machine.
-
+#### 5. DL docker image and run it in local machine.
 
 
 
