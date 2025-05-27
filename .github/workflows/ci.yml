@@ -1,21 +1,18 @@
-name: CI with Maven for compile, test
+name: CI with Maven and JFrog
 
 on:
   push:
     branches: 
       - "main"
-      - "homework/ci-pipeline"
+      - "features/jfrog-ci-pipeline"
     paths-ignore:
       - "docs/**"
       - "**.md"
       - "deliverables/**"
-  pull_request:
-    branches:
-      - "main"
   workflow_dispatch:
     inputs:
       environment:
-        description: "manual"
+        description: "Placeholder"
         required: true
         default: "default"
 
@@ -78,9 +75,14 @@ jobs:
         jf docker tag $IMAGE_NAME $IMAGE_LATEST
         jf docker push $IMAGE_NAME
         jf docker push $IMAGE_LATEST
-        #In case, watchlist not defined
-        #jf docker scan $IMAGE_NAME --format=json > scan-${{ github.run_number }}.json
-        jf docker scan $IMAGE_LATEST --format=json > scan-latest.json
+        jf docker scan $IMAGE_LATEST --format=json > xray-scan-result.json
+
+    - name: Upload scan result as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: xray-scan-result
+        path: xray-scan-result.json
+
 
     - name: Publish Build info With JFrog CLI
       env:
