@@ -76,8 +76,14 @@ jobs:
         jf docker push $IMAGE_NAME
         jf docker push $IMAGE_LATEST
         #In case, watchlist not defined
-        #jf docker scan $IMAGE_NAME --format=json > scan-${{ github.run_number }}.json
-        jf docker scan $IMAGE_LATEST --format=json > scan-latest.json
+        jf scan $IMAGE_LATEST --format=json > scan-latest.json
+
+    - name: Upload scan result as artifact
+      uses: action/upload-artifact@v3
+      with:
+        name: xray-scan-result
+        path: scan-latest.json
+
 
     - name: Publish Build info With JFrog CLI
       env:
