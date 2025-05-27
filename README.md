@@ -79,7 +79,7 @@ Here are the main modifications compared to the original spring-petclinic projec
 
  3.4) Select "Variables" tab, click "New repository variable" button. Enter `JF_URL` and its value \(noted at step 2.5\) above\), then click "Add variable" buttons.
 
- 3.5) Apply the same process to add `JF_REGISTRY`, `JF_REPOSITORY` and `JF_DOCKER_IMAGE_NAME` to Variables. Here, `JF_REGISTRY` is the resistory key so you can simply remove `https://` from `JF_URL` valuie. You can name `JF_REPOSITORY` and `JF_DOCKER_IMAGE_NAME` as you prefer.
+ 3.5) Please apply the same process to add `JF_REGISTRY`, `JF_REPOSITORY` and `JF_DOCKER_IMAGE_NAME` to Variables. For `JF_REGISTRY`, you can simply remove `https://` from `JF_URL` value, as it represents the registry key. You can name `JF_REPOSITORY` and `JF_DOCKER_IMAGE_NAME` as you prefer.
 
 Please note `JF_RESISTRY`, `JF_REPOSITORY` and `JF_DOCKER_IMAGE_NAME` will be refered for the later step to pull docker image from the artifactory. After the variable assignments, you can see repository variables like below.
 ![variables](docs/assets/variables.png)
