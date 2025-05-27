@@ -81,7 +81,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: xray-scan-result
-        path: scan-latest.json
+        path: xray-scan-result.json
 
 
     - name: Publish Build info With JFrog CLI
