@@ -17,6 +17,14 @@ jobs:
   - job:
     displayName: "Frogbot Scan Repository and Fix"
     steps:
+       - task: JavaToolInstaller@0
+         displayName: 'Install Java 17'
+         inputs:
+           versionSpec: '17'
+           jdkSourceOption: 'PreInstalled'
+           jdkArchitectureOption: 'x64'
+
+           
        - task: PowerShell@2
          displayName: 'Download and Run Frogbot'
          env:
