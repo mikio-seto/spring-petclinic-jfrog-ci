@@ -12,6 +12,7 @@ variables:
   #JF_GIT_PULL_REQUEST_ID: $(System.PullRequest.PullRequestNumber)
   JF_GIT_PROVIDER: 'github'
   GITHUB_JOB: 'azure-pipeline-job'
+  GITHUB_WORKFLOW: 'azure-pipeline-wf'
 
 jobs:
   - job:
