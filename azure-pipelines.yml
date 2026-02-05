@@ -1,0 +1,38 @@
+pr: none
+trigger: none
+
+pool:
+  name: Default
+
+variables:
+  JF_GIT_PROJECT: $(System.TeamProject)
+  JF_GIT_REPO: 'spring-petclinic-jfrog-ci'
+  JF_GIT_BASE_BRANCH: $(Build.SourceBranchName)
+  JF_GIT_OWNER: 'mikio-seto'
+  #JF_GIT_PULL_REQUEST_ID: $(System.PullRequest.PullRequestNumber)
+  JF_GIT_PROVIDER: 'github'
+  GITHUB_JOB: 'azure-pipeline-job'
+
+jobs:
+  - job:
+    displayName: "Frogbot Scan Repository and Fix"
+    steps:
+       - task: PowerShell@2
+         displayName: 'Download and Run Frogbot'
+         env:
+            JF_URL: $(JF_URL)
+            JF_ACCESS_TOKEN: $(JF_ACCESS_TOKEN)
+            JF_GIT_TOKEN: $(JF_GIT_TOKEN)
+
+         inputs:
+            targetType: 'inline'
+            script: |
+               if ([string]::IsNullOrEmpty($env:JF_RELEASES_REPO)) {
+                   $getFrogbotExeBasePath = "https://releases.jfrog.io"
+               } else {
+                   $getFrogbotExeBasePath = "${env:JF_URL}/artifactory/${env:JF_RELEASES_REPO}"
+               }
+
+               $url = "$getFrogbotExeBasePath/artifactory/frogbot/v2/[RELEASE]/frogbot-windows-amd64/frogbot.exe"
+               curl.exe -fLg $url -o frogbot.exe
+               .\frogbot cfpr
