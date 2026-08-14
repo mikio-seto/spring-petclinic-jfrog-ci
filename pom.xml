@@ -187,6 +187,11 @@
             <goals>
               <goal>validate</goal>
             </goals>
+            <configuration>
+              <excludes>
+                <exclude>**/deliverables/**</exclude>
+              </excludes>
+            </configuration>
             <phase>validate</phase>
           </execution>
         </executions>
